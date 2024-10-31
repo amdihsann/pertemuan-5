@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tugas pertemuan 5</title>
+</head>
+<body>
+    
+</body>
+</html>
+<body>
+    <h1>daftar tugas harian</h1>
+    <form>
+        <input type="text" id="taskInput" required>
+        <button onclick="newForm()">submit</button>
+    </form>
+    <ul id="list"></ul>
+    
+    <script>
+    function newForm(){
+        var taskInput = document.getElementById('taskInput');
+        var newList = document.getElementById('list');
+        
+        var textList = document.createElement('li');
+        var taskText = document.createElement('p');
+        taskText.textContent = taskInput.value;
+        textList.appendChild(taskText);
+        
+        var editButton = document.createElement('button');
+        button = document.createTextNode('edit');
+        editButton.appendChild(button);
+        editButton.onclick = function(){
+            var newTask = prompt('edit teks: ', taskText.textContent);
+            if(newTask){
+                taskText.textContent = newTask;  
+            }
+        };
+        textList.appendChild(editButton);
+        
+        var dltButton = document.createElement('button');
+        buttonHapus = document.createTextNode('hapus');
+        dltButton.appendChild(buttonHapus); 
+        dltButton.onclick = function(){
+            newList.removeChild(textList);
+        };
+        
+        textList.appendChild(dltButton);
+        
+        newList.appendChild(textList);
+        taskInput.value = '';
+    };
+</script>
+
+</body>
+</html>
